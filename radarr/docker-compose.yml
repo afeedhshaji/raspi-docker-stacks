@@ -1,0 +1,16 @@
+version: "3"
+services:
+  radarr:
+    image: linuxserver/radarr:latest
+    container_name: radarr
+    network_mode: host
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./config:/config
+      - ${ROOT}/downloads:/downloads
+      - ${ROOT}/complete/movies:/movies
+    restart: unless-stopped

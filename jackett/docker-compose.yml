@@ -1,0 +1,15 @@
+version: "3"
+services:
+  jackett:
+    container_name: jackett
+    image: linuxserver/jackett:latest
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - PUID=${PUID} 
+      - PGID=${PGID} 
+      - TZ=${TZ} 
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${ROOT}/downloads/torrent-blackhole:/downloads 
+      - ./config:/config 

@@ -1,0 +1,14 @@
+version: "3"
+services:
+  deluge:
+    container_name: deluge
+    image: linuxserver/deluge:latest
+    restart: always
+    network_mode: host 
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID} 
+      - TZ=${TZ}
+    volumes:
+      - ${ROOT}/downloads:/downloads 
+      - ./config:/config 

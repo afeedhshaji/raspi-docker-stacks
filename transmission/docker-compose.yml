@@ -1,0 +1,21 @@
+version: "3"
+services:
+  transmission:
+    image: ghcr.io/linuxserver/transmission
+    container_name: transmission
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - TRANSMISSION_WEB_HOME=/combustion-release/ #optional
+      - USER=${USER} 
+      - PASS=#{PASSWORD} 
+    volumes:
+      - ./config:/config
+      - ${ROOT}/downloads:/downloads
+      - ${ROOT}/downloads/torrent-blackhole:/watch
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    restart: unless-stopped

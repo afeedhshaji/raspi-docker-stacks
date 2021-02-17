@@ -1,0 +1,18 @@
+version: "3"
+services:
+  qbittorrent:
+    image: ghcr.io/linuxserver/qbittorrent
+    container_name: qbittorrent
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - WEBUI_PORT=8082
+    volumes:
+      - ./config:/config
+      - ${ROOT}/downloads:/downloads
+    ports:
+      - 6882:6882
+      - 6882:6882/udp
+      - 8082:8082
+    restart: unless-stopped

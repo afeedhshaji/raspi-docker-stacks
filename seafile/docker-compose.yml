@@ -1,0 +1,11 @@
+version: "3"
+services:
+    seafile:
+        ports:
+            - "82:80"
+            - "4943:443"
+        environment:
+            - SEAFILE_SERVER_LETSENCRYPT=true
+            - SEAFILE_SERVER_HOSTNAME=${SEAFILE_SERVER_HOSTNAME}
+        - SEAFILE_ADMIN_EMAIL=${SEAFILE_ADMIN_EMAIL}
+        - SEAFILE_ADMIN_PASSWORD=${SEAFILE_ADMIN_PASSWORD}

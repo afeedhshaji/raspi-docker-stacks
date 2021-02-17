@@ -1,0 +1,13 @@
+version: "3.0"
+services:
+  nzbget:
+    container_name: nzbget
+    image: linuxserver/nzbget:latest
+    network_mode: host
+    environment:
+      - PUID=${PUID} 
+      - PGID=${PGID} 
+      - TZ=${TZ} 
+    volumes:
+      - ${ROOT}/downloads:/downloads 
+      - ./config:/config 

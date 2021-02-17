@@ -1,0 +1,17 @@
+version: "3"
+services:
+  sonarr:
+    container_name: sonarr
+    image: linuxserver/sonarr:preview
+    network_mode: host
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ= ${TZ}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./config:/config
+      - ${ROOT}/complete/tv:/tv 
+      - ${ROOT}/complete/anime:/anime
+      - ${ROOT}/downloads:/downloads
+    restart: unless-stopped

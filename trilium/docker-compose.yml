@@ -1,0 +1,11 @@
+version: '3'
+services:
+  web:
+    image: hlince/trilium:latest-stable-arm
+    environment:
+      - TRILIUM_DATA_DIR=/data
+    ports:
+      - 8083:8080
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
