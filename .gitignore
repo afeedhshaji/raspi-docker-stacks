@@ -2,10 +2,10 @@
 config/
 data/
 downloads/
-torrent_downloads/
+torrent_downloads
 wireguard_config/
 db/
 nextcloud/
 qbittorrenthtemes/
-etc-dnsmasq.data
+etc-dnsmasq.d
 etc-pihole
