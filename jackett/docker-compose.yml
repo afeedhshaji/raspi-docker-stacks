@@ -4,7 +4,8 @@ services:
     container_name: jackett
     image: linuxserver/jackett:latest
     restart: unless-stopped
-    network_mode: host
+    ports:
+      - 9117:9117
     environment:
       - PUID=${PUID} 
       - PGID=${PGID} 

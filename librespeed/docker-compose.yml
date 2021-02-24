@@ -1,0 +1,21 @@
+version: "3"
+services:
+  librespeed:
+    image: ghcr.io/linuxserver/librespeed
+    container_name: librespeed
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - PASSWORD=${PASSWORD}
+      - CUSTOM_RESULTS=true #optional
+      - DB_TYPE=${DB_TYPE} #optional
+      - DB_NAME=${DB_NAME} #optional
+      - DB_HOSTNAME=${DB_HOSTNAME} #optional
+      - DB_USERNAME=${DB_USERNAME} #optional
+      - DB_PASSWORD=${DB_PASSWORD} #optional
+    volumes:
+      - ./config:/config
+    ports:
+      - 8092:80
+    restart: unless-stopped

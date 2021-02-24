@@ -3,10 +3,10 @@ services:
   portainer:
     image: portainer/portainer-ce
     command: -H unix:///var/run/docker.sock
-    restart: always
+    restart: unless-stopped
     ports:
       - 9041:9000
-      - 8040:8000
+      - 8041:8000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./data:/data

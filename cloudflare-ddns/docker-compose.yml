@@ -2,7 +2,7 @@ version: '3'
 services:
   cloudflare-ddns:
     image: oznu/cloudflare-ddns:latest
-    restart: always
+    restart: unless-stopped
     environment:
       - API_KEY=${API_KEY}
       - ZONE=${zone}

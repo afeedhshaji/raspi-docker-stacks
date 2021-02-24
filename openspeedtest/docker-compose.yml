@@ -1,0 +1,8 @@
+version: '3.3'
+services:
+    latest:
+        restart: unless-stopped
+        container_name: openspeedtest
+        ports:
+            - '8091:8080'
+        image: openspeedtest/latest
